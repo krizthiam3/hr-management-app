@@ -1,27 +1,59 @@
-# HrManagementApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
+# HR Management App
 
-## Development server
+Este proyecto es una aplicación completa para la gestión de empleados construida con Angular para el frontend.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 📁 Estructura del Proyecto
+- `frontend/` - Proyecto frontend en Angular
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🚀 Tecnologías Usadas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Frontend
+- Angular
+- Angular Forms (Reactive Forms)
+- Angular Router
+- Bootstrap 5
+- DataTables
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## ⚙️ Funcionalidades
 
-## Running end-to-end tests
+- Autenticación con JWT
+- Roles y autorizaciones (admin, usuario)
+- CRUD de Empleados
+- Subida de imagen de perfil
+- Validaciones personalizadas
+- Filtros y búsqueda con DataTables
+- Guard de rutas protegidas
+- Diseño responsive
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## ▶️ Cómo ejecutar
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Frontend (Angular)
+
+```bash
+cd frontend
+npm install
+ng serve
+```
+
+---
+
+## 🔒 Credenciales de prueba
+
+- Admin:
+  - Usuario: admin1@email.com
+  - Contraseña: admin123
+- Usuario:
+  - Usuario: user1@email.com
+  - Contraseña: user123
+
+---
+
