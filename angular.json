@@ -29,10 +29,14 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
+"styles": [
+  "bootstrap/dist/css/bootstrap.min.css",
+  "datatables.net-bs5/css/dataTables.bootstrap5.min.css"
+],
+"scripts": [
+  "jquery/dist/jquery.min.js",
+  "datatables.net-bs5/js/dataTables.bootstrap5.min.js"
+]
           },
           "configurations": {
             "production": {
@@ -100,5 +104,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

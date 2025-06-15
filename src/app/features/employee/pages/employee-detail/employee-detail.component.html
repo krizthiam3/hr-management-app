@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <div *ngIf="employee" class="card p-4">
+    <div class="row align-items-center">
+
+      <!-- Columna izquierda: datos -->
+      <div class="col-md-8">
+        <h3>Detalles del Empleado</h3>
+        <p><strong>Nombre:</strong> {{ employee.fullName }}</p>
+        <p><strong>Email:</strong> {{ employee.email }}</p>
+        <p><strong>Teléfono:</strong> {{ employee.phone }}</p>
+        <p><strong>Departamento:</strong> {{ employee.departmentName }}</p>
+        <p><strong>Posición:</strong> {{ employee.positionTitle }}</p>
+        <p><strong>Salario:</strong> {{ employee.salary | currency }}</p>
+        <a routerLink="/employees" class="btn btn-secondary mt-3">Volver al listado</a>
+      </div>
+
+      <!-- Columna derecha: foto -->
+      <div class="col-md-4 text-center">
+                <h3>Foto de perfil</h3>
+
+            <img src="assets/undraw_pic-profile_nr49.png" alt="HR Illustration" class="img-fluid" style="width: 300px; height: 300px; ">
+      </div>
+
+    </div>
+  </div>
+</div>

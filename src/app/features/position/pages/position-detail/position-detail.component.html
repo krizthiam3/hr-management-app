@@ -1,0 +1,11 @@
+<div class="container mt-4">
+   
+    <div *ngIf="position" class="card p-3">
+        <h2>Detalle del Cargo</h2>
+        <p><strong>Nombre:</strong> {{ position.title }}</p>
+        <p><strong>Descripción:</strong> {{ position.description }}</p>
+
+          <a routerLink="/positions" class="btn btn-secondary mt-3">Volver al listado</a>
+
+</div>
+</div>

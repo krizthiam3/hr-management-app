@@ -1,0 +1,89 @@
+
+<div class="container mt-4">
+  <h3>{{ isEditMode ? 'Editar Empleado' : 'Nuevo Empleado' }}</h3>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+  <button class="btn btn-secondary" (click)="goBackToList()">Atrás</button>
+</div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col-md-6 mb-2">
+        <label>Nombres</label>
+        <input class="form-control" formControlName="firstName" />
+        <div class="text-danger" *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched">
+          Campo requerido
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-2">
+        <label>Apellidos</label>
+        <input class="form-control" formControlName="lastName" />
+        <div class="text-danger" *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched">
+          Campo requerido
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-2">
+        <label>Email</label>
+        <input class="form-control" formControlName="email" />
+        <div class="text-danger" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+          Email inválido
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-2">
+        <label>Teléfono</label>
+        <input class="form-control" formControlName="phone" />
+      </div>
+
+      <div class="col-md-6 mb-2">
+        <label>Fecha de nacimiento</label>
+        <input type="date" class="form-control" formControlName="birthDate" />
+        <div class="text-danger" *ngIf="form.get('birthDate')?.errors?.['birthDateInFuture']">
+        La fecha de nacimiento no puede ser mayor a la actual.
+      </div>
+      </div>
+
+      <div class="col-md-6 mb-2">
+        <label>Fecha de contratación</label>
+        <input type="date" class="form-control" formControlName="hireDate" />
+        <div class="text-danger" *ngIf="form.errors?.['hireBeforeBirth']">
+        La fecha de contratación debe ser posterior a la fecha de nacimiento.
+      </div>
+      </div>
+
+      <div class="col-md-6 mb-2">
+        <label>Salario</label>
+        <input type="number" class="form-control" formControlName="salary" />
+        <div class="text-danger" *ngIf="form.get('salary')?.errors?.['salaryRange']">
+          El salario debe estar entre 1000 y 10000.
+        </div>      
+      </div>
+
+      <div class="col-md-6 mb-2">
+        <label>Departamento</label>
+        <select class="form-control" formControlName="departmentId">
+          <option *ngFor="let d of departments" [value]="d.id">{{ d.name }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 mb-2">
+        <label>Posición</label>
+        <select class="form-control" formControlName="positionId">
+          <option *ngFor="let p of positions" [value]="p.id">{{ p.title }}</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn btn-success mt-3" [disabled]="form.invalid">
+      {{ isEditMode ? 'Actualizar' : 'Crear' }}
+    </button>
+  </form>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+</div>
+

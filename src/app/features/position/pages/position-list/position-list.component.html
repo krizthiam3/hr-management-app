@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <h3>Posiciones</h3>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+      <button class="btn btn-secondary" (click)="goBackToList()">  Atrás</button>
+      <a routerLink="/positions/new" class="btn btn-primary">+ Nueva Posicion</a>
+
+    </div>
+
+  <table id="positionTable" class="table table-hover table-bordered">
+      <thead>
+        <tr><th>Title</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of positions">
+          <td>{{ p.title }}</td>
+          <td>{{ p.description || '-' }}</td>
+        <td style="white-space: nowrap; width: 1%;">
+            <a [routerLink]="['/positions', p.id, 'detail']" class="btn btn-info btn-sm me-1">
+              Ver detalles
+            </a>
+        <button class="btn btn-sm btn-primary me-1" (click)="editPosition(p.id)">
+           Editar
+        </button>
+        <button *ngIf="isAdmin()"  class="btn btn-sm btn-danger" (click)="deletePosition(p.id)">
+           Eliminar
+        </button>
+      </td>
+        </tr>
+      </tbody>
+
+      
+    </table>
+
+ 
+
+</div>

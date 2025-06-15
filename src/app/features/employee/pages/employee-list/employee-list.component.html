@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <h2>Empleados</h2>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <button class="btn btn-secondary" (click)="goBackToList()">  Atrás</button>
+        <a routerLink="/employees/new" class="btn btn-primary mb-3">+ Nuevo Empleado</a>
+    </div>
+ 
+    <table id="employeeTable" class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Departamento</th>
+          <th>Posicion</th>
+          <th>Salario</th>
+          <th>Acciones</th> <!-- nueva columna -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let e of employees">
+          <td class="text-center">
+                      <img src="assets/undraw_pic-profile_nr49.png" alt="HR Illustration" class="img-fluid" style="width: 40px; height: 40px; ">
+
+          </td>
+          <td>{{ e.fullName }}</td>
+          <td>{{ e.email }}</td>
+          <td>{{ e.phone }}</td>
+          <td>{{ e.departmentName }}</td>
+          <td>{{ e.positionTitle }}</td>
+          <td>{{ e.salary | currency }}</td>
+          <td style="white-space: nowrap; width: 1%;">
+            <a [routerLink]="['/employees', e.id, 'detail']" class="btn btn-info btn-sm me-1">
+              Ver detalles
+            </a>
+            <button class="btn btn-sm btn-primary me-1" (click)="editEmployee(e.id)">
+              Editar
+            </button>
+            <button *ngIf="isAdmin()"  class="btn btn-sm btn-danger" (click)="deleteEmployee(e.id)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
